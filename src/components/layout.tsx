@@ -11,10 +11,16 @@ import {StaticQuery, graphql} from "gatsby"
 import "./layout.css"
 
 interface Props {
-  children : ReactNode
+  children : ReactNode;
+  fullHeight
+    ?
+    : Boolean;
 }
 
-const Layout = ({children} : Props) => (<StaticQuery
+const Layout = ({
+  children,
+  fullHeight = false
+} : Props) => (<StaticQuery
   query={graphql ` query SiteTitleQuery { site { siteMetadata { title } } } `}
   render={() => (
   <div
@@ -24,7 +30,9 @@ const Layout = ({children} : Props) => (<StaticQuery
     display: `flex`,
     justifyContent: 'center',
     alignItems: 'center',
-    height: `100vh`,
+    height: fullHeight
+      ? `100vh`
+      : `auto`,
     padding: `1.45rem`
   }}>
     <main style={{}}>{children}</main>

@@ -28,7 +28,7 @@ export default() => {
   return (
     <React.Fragment>
       <Nav/>
-      <Layout>
+      <Layout fullHeight>
         <Name>Kris Pinter.</Name>
         <Divider/>
         <Thin>JavaScript developer</Thin><br/>
