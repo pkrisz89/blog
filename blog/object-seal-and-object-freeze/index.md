@@ -3,7 +3,7 @@ title: "Object.seal vs Object.freeze. What are they?"
 date: "2019-03-15"
 ---
 
-# How to create immutable objects in javascript?
+## How to create immutable objects in javascript?
 
 ## What is data mutation?
 Mutable data types are data types whose state can be changed after it’s creation. 
