@@ -1,8 +1,8 @@
-import React from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
-import {Link} from 'gatsby';
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import { Link } from "gatsby";
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
   body {
     background-color: #FFECE8;
     font-family: 'lato', serif;
@@ -21,9 +21,9 @@ const GlobalStyle = createGlobalStyle `
     text-shadow: rgba(0, 0, 0, 0.1) -7.38px 1.475px;
     text-align: center;
   }
-`
+`;
 
-const Navigation = styled.div `
+const Navigation = styled.div`
     position: absolute;
     left: 2em;
     top 1em;
@@ -31,21 +31,24 @@ const Navigation = styled.div `
     display: flex;
     justify-content: space-between;
     width: 18em;
-`
+`;
 
 const StyledLink = styled(Link)`
- :link, :visited, :hover, :active {
-     color: #01161E;
-     text-decoration: none;
- }
-`
+  :link,
+  :visited,
+  :hover,
+  :active {
+    color: #01161e;
+    text-decoration: none;
+  }
+`;
 
-export default() => (
-    <Navigation>
-        <GlobalStyle/>
-        <StyledLink to='/'>Home</StyledLink>
-        <StyledLink to='/about'>About</StyledLink>
-        <StyledLink to='/blog'>Blog</StyledLink>
-        <StyledLink to='/contact'>Contact</StyledLink>
-    </Navigation>
-)
+export default () => (
+  <Navigation>
+    <GlobalStyle />
+    <StyledLink to="/">Home</StyledLink>
+    <StyledLink to="/about">About</StyledLink>
+    <StyledLink to="/blog">Blog</StyledLink>
+    <StyledLink to="/contact">Contact</StyledLink>
+  </Navigation>
+);

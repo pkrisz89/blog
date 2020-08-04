@@ -5,38 +5,44 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, {ReactNode} from "react"
-import {StaticQuery, graphql} from "gatsby"
+import React, { ReactNode } from "react";
+import { StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
 
-import "./layout.css"
+import "./layout.css";
 
 interface Props {
-  children : ReactNode;
-  fullHeight
-    ?
-    : Boolean;
+  children: ReactNode;
+  fullHeight?: Boolean;
 }
 
-const Layout = ({
-  children,
-  fullHeight = false
-} : Props) => (<StaticQuery
-  query={graphql ` query SiteTitleQuery { site { siteMetadata { title } } } `}
-  render={() => (
-  <div
-    style={{
-    margin: `0 auto`,
-    maxWidth: 960,
-    display: `flex`,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: fullHeight
-      ? `100vh`
-      : `auto`,
-    padding: `1.45rem`
-  }}>
-    <main style={{}}>{children}</main>
-  </div>
-)}/>)
+const LayoutComponent = styled.div<Props>`
+  margin: 0 auto;
+  max-width: 960px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: ${props => (props.fullHeight ? "100vh" : "auto")};
+  padding: 1.45rem;
+`;
 
-export default Layout
+const Layout = ({ children, fullHeight = false }: Props) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={() => (
+      <LayoutComponent fullHeight={fullHeight}>
+        <main>{children}</main>
+      </LayoutComponent>
+    )}
+  />
+);
+
+export default Layout;
